@@ -53,7 +53,7 @@
 					"response": []
 				},
 				{
-					"name": "GET /teams/{id}/players Copy",
+					"name": "GET /teams/{id}/players",
 					"event": [
 						{
 							"listen": "test",
@@ -73,13 +73,13 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer af24353tdsfw",
 								"type": "text",
+								"value": "Bearer af24353tdsfw",
 								"disabled": true
 							}
 						],
@@ -142,6 +142,305 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Routing-Direct-Routes",
+			"item": [
+				{
+					"name": "GET /teams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a41c940a-96ec-4678-a088-c361ae8d7fe3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer af24353tdsfw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/teams",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /teams/{id}/players",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2934fe4c-ed20-4b50-847a-f508dc1bf640",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer af24353tdsfw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/teams/1/players",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								"1",
+								"players"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /teams/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5e3ea54b-0b5a-401e-85cb-dd408888e9d0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer af24353tdsfw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/teams/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /optional",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eb691fc0-3721-4578-b67c-0ef8e083b704",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer af24353tdsfw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/optional/a,1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"optional",
+								"a,1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /defaults/onroute",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "300c6ea8-c761-47da-b261-61ba8160d789",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer af24353tdsfw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/defaults/onroute",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"defaults",
+								"onroute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /defaults/onaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "abdef485-9461-4552-a18b-bcf915083489",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer af24353tdsfw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/defaults/onaction/a",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"defaults",
+								"onaction",
+								"a"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1c31a498-72ab-47a5-b130-7937297486d6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2fcf9bee-7f02-4597-a026-26264f88d0ee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
