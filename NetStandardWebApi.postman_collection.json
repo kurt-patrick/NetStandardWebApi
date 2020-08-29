@@ -568,6 +568,121 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filters",
+			"item": [
+				{
+					"name": "Action Filters",
+					"item": [
+						{
+							"name": "POST invalid model returns 400",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8c154bf5-4fa3-4270-b063-66e065e2dc85",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The Name field is required.\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"The Name field is required.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}\r\n"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/action",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"action"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST empty/null post body returns 400",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c1c18088-79e5-46dd-808a-44abc742d5a9",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"POST body is required\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"POST body is required\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/action",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"action"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
