@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugging.AddTraceWriter", "Debugging.AddTraceWriter.csproj", "{C5237AC4-9ECA-4389-A8E8-6D3B387A099E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5237AC4-9ECA-4389-A8E8-6D3B387A099E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5237AC4-9ECA-4389-A8E8-6D3B387A099E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5237AC4-9ECA-4389-A8E8-6D3B387A099E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5237AC4-9ECA-4389-A8E8-6D3B387A099E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {464AA715-1675-474F-9782-74D57EFEC247}
+	EndGlobalSection
+EndGlobal
