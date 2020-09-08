@@ -1,0 +1,38 @@
+Sending a stack trace is a security risk. By specifying the Never option for the error details inclusion policy in
+WebApiConfig.cs under the App_Start folder, the stack trace can be stopped from getting to the client.
+config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Never;
+
+Instead of a generic status 500, 400 – Bad Request gets sent back along with the message stating the employee is invalid.
+
+This gets the job done, but there is an extensibility point in the form of ExceptionFilterAttribute available to
+map standard .NET exceptions to standard HTTP status code (see Listing 4-5). Such a filter added to the global filter
+collection will keep the code dry from the point of view of having to build an HTTP response with different status
+codes at different places.
+
+Listing 4-5. Exception Filter
+
+public class ExceptionFilter : ExceptionFilterAttribute
+{
+    private IDictionary<Type, HttpStatusCode> map = null;
+    public ExceptionFilter()
+    {
+        map = new Dictionary<Type, HttpStatusCode>();
+        map.Add(typeof(ArgumentException), HttpStatusCode.BadRequest);
+        map.Add(typeof(SecurityException), HttpStatusCode.Unauthorized);
+        map.Add(typeof(NotImplementedException), HttpStatusCode.NotImplemented);
+    }
+    public override void OnException(HttpActionExecutedContext context)
+    {
+        if (!(context.Exception is HttpException))
+        {
+            context.Response = new HttpResponseMessage(map[context.Exception.GetType()])
+            {
+                Content = new StringContent(context.Exception.Message)
+            };
+        }
+    }
+}
+
+PG 47 - 48
+Pro ASP.NET Web API Security Securing ASP.NET Web API
+
